@@ -11,6 +11,11 @@ namespace LevelOne
         private static void Main(string[] args)
         {
             Console.WriteLine("Hello LP!");
+            PrintSomething("Goodbye world");
+        }
+        private static void PrintSomething(string something)
+        {
+            Console.WriteLine(something);
         }
     }
 }
