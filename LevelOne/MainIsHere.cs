@@ -14,7 +14,7 @@ namespace LevelOne
         private static void Main(string[] args)
         {
             Console.WriteLine("Hello LP!");
-            Console.WriteLine("Bad day?");
+            Console.WriteLine("Nice day?");
             Console.WriteLine("Bye!");
             PrintSomething("Goodbye world");
         }
