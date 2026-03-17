@@ -2,6 +2,9 @@
 
 namespace LevelOne
 {
+    /// <summary>
+    /// This is the main file of this program.
+    /// </summary>
     public class MainIsHere
     {
         /// <summary>
