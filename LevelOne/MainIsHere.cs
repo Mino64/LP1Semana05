@@ -15,6 +15,7 @@ namespace LevelOne
         {
             Console.WriteLine("Hello LP!");
             Console.WriteLine("Bad day?");
+            Console.WriteLine("Grey day");
             Console.WriteLine("Bye!");
             PrintSomething("Goodbye world");
         }
