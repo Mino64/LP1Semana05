@@ -13,6 +13,10 @@ namespace LevelOne
             Console.WriteLine("Hello LP!");
             PrintSomething("Goodbye world");
         }
+        /// <summary>
+        /// This method prints something!
+        /// </summary>
+        /// <param name="something"> Something to Print</param>
         private static void PrintSomething(string something)
         {
             Console.WriteLine(something);
