@@ -12,16 +12,19 @@ namespace DungeonStats
         private static void Main(string[] args)
         {
             int num1 = Convert.ToInt32(args[0]);
-            int num2;
+            //int num2 = Convert.ToInt32(args[1]);
+            int num2 = 2;
 
-            if (args[1] == null)
+           /* if (args[1] == null)
             {
                 num2 = 2;
             }
             else
             {
                 num2 = Convert.ToInt32(args[1]);
-            }
+            }*/
+
+
             var table = new Table();
   
             // Add columns
@@ -30,9 +33,20 @@ namespace DungeonStats
   
             // Add rows
             table.AddRow($"Damage({num1})", $"{Damage(num1)}");
-            table.AddRow($"Damage({num1}, {num2})", $"{Damage(num1,num2)}");
-            table.AddRow($"CriticalHit({Damage(num1,num2)})", $"{CriticalHit(Damage(num1,num2))}");
+            if(args[1] != string.Empty)
+            {
+                int num3 = Convert.ToInt32(args[1]);
+                table.AddRow($"Damage({num1}, {num3})", $"{Damage(num1,num3)}");
+                table.AddRow($"CriticalHit({Damage(num1,num3)})", $"{CriticalHit(Damage(num1,num3))}");
+            }
+            else
+            {
+                table.AddRow($"Damage({num1}, {num2})", $"{Damage(num1,num2)}");
+                table.AddRow($"CriticalHit({Damage(num1,num2)})", $"{CriticalHit(Damage(num1,num2))}");
             //table.AddRow($"CriticalHit({Damage(num1,num2)})", $"{CriticalHit(Damage(num1,num2))}");
+                
+            }
+
   
             AnsiConsole.Write(table);
         }
@@ -62,7 +76,7 @@ namespace DungeonStats
             }
             else
             {
-                return 1 + CriticalHit(Damage(damage, damage));
+                return 1 + CriticalHit(Damage(damage, 2));
                 
             
             }
