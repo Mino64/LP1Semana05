@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Data;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
+using Spectre.Console;
 
 namespace DungeonStats
 {
@@ -8,7 +11,30 @@ namespace DungeonStats
        
         private static void Main(string[] args)
         {
-            int savedDef = Convert.ToInt32(args[1]);
+            int num1 = Convert.ToInt32(args[0]);
+            int num2;
+
+            if (args[1] == null)
+            {
+                num2 = 2;
+            }
+            else
+            {
+                num2 = Convert.ToInt32(args[1]);
+            }
+            var table = new Table();
+  
+            // Add columns
+            table.AddColumn("Operation");
+            table.AddColumn("Result");
+  
+            // Add rows
+            table.AddRow($"Damage({num1})", $"{Damage(num1)}");
+            table.AddRow($"Damage({num1}, {num2})", $"{Damage(num1,num2)}");
+            table.AddRow($"CriticalHit({Damage(num1,num2)})", $"{CriticalHit(Damage(num1,num2))}");
+            //table.AddRow($"CriticalHit({Damage(num1,num2)})", $"{CriticalHit(Damage(num1,num2))}");
+  
+            AnsiConsole.Write(table);
         }
 
         private static int Damage(int attack, int defense)
@@ -37,6 +63,8 @@ namespace DungeonStats
             else
             {
                 return 1 + CriticalHit(Damage(damage, damage));
+                
+            
             }
         }
 
